@@ -1,4 +1,9 @@
-// Find the longest word
+// ***** Find the Longest Word in a String *****
+
+/*
+Return the length of the longest word in the provided sentence.
+Your response should be a number.
+*/
 
 var findLongestWord = function(str) {
   str = str.split(' ').sort(function(a,b) {
@@ -28,10 +33,18 @@ var findLongestWord3 = function(str) {
 
 var string = "What if we try a super-long word such as otorhinolaryngology this time";
 
-// console.log(findLongestWord2("What if we try a super-long word such as otorhinolaryngology this time"));
-// console.log(findLongestWord2("What if we try a super-long word such as potorhinolaryngology this time"));
+console.log(findLongestWord2("What if we try a super-long word such as otorhinolaryngology this time"));
+console.log(findLongestWord2("What if we try a super-long word such as potorhinolaryngology this time"));
 
-// Title Case A Sentence
+
+// ***** Title Case a Sentence *****
+
+/*
+Return the provided string with the first letter of each word capitalized. 
+Make sure the rest of the word is in lower case.
+For the purpose of this exercise, you should also 
+capitalize connecting words like "the" and "of".
+*/
 
 var titleCase = function(str) {
   return str.split(' ').map(function(val) {
@@ -61,13 +74,21 @@ var titleCase3 = function(str) {
   return newArr.join(' ');
 }
 
-console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT"));
 console.log(titleCase3("HERE IS MY HANDLE HERE IS MY SPOUT"));
 
 var string = "HERE IS MY HANDLE HERE IS MY SPOUT";
 
 
-// Find the largest Number in each subarray
+
+
+// ***** Return Largest Numbers in Arrays *****
+
+/* 
+Return an array consisting of the largest number from each provided sub-array. 
+For simplicity, the provided array will contain exactly 4 sub-arrays.
+Remember, you can iterate through an array with a simple for loop, 
+and access each member with array syntax arr[i].
+*/
 
 function largestOfFour(arr) {
   var newArr = [], largestNum = 0;
@@ -105,7 +126,16 @@ function largestOfFour3(arr) {
 
 var testArr = [[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]];
 
-// Seek and Destroy
+largestOfFour3(testArr);
+
+
+// ***** Seek and Destroy *****
+
+/* 
+You will be provided with an initial array (the first argument in the destroyer function), 
+followed by one or more arguments. Remove all elements from the initial array 
+that are of the same value as these arguments.
+*/
 
 function destroyer(arr) {
   var args = [];
@@ -132,10 +162,21 @@ function destroyer2(arr) {
   return newArr;
 }
 
-console.log(destroyer([1, 2, 3, 1, 2, 3, 4, 5, 6, 7, 3 ,9, 7, 7, 1], 2, 3, 5, 7));
 console.log(destroyer2([1, 2, 3, 1, 2, 3, 4, 5, 6, 7, 3 ,9, 7, 7, 1], 2, 3, 5, 7));
 
-// Caesars Cipher
+
+// ***** Caesars Cipher *****
+
+/* 
+One of the simplest and most widely known ciphers is a Caesar cipher, 
+also known as a shift cipher. In a shift cipher the meanings of the letters 
+are shifted by some set amount. A common modern use is the ROT13 cipher, 
+where the values of the letters are shifted by 13 places. 
+Thus 'A' ↔ 'N', 'B' ↔ 'O' and so on.
+Write a function which takes a ROT13 encoded string as input and returns a decoded string.
+All letters will be uppercase. Do not transform any non-alphabetic character 
+(i.e. spaces, punctuation), but do pass them on.
+*/
 
 function rot13(str) { // LBH QVQ VG!
   str = str.toUpperCase();
@@ -157,7 +198,14 @@ function rot13(str) { // LBH QVQ VG!
 // Change the inputs below to test
 console.log(rot13("GUR DHVPX OEBJA QBT WHZCRQ bire GUR YNML SBK!!!"));
 
-// Sum
+
+// ***** Sum All Numbers in a Range *****
+
+/* 
+We'll pass you an array of two numbers. Return the sum of those two numbers 
+and all numbers between them.
+The lowest number will not always come first.
+*/
 
 var sumAll = function(arr) {
   var min = Math.min(arr[0], arr[1]), max = Math.max(arr[0], arr[1]);
@@ -182,19 +230,16 @@ var sumAll3 = function(arr) {
   return (Math.abs(arr[0] - arr[1]) + 1) * (arr[0] + arr[1]) / 2;
 }
 
-console.log(sumAll([10, 5]));
-console.log(sumAll2([10, 5]));
 console.log(sumAll3([10, 5]));
 
-// Difference between two arrays
 
-// function diffArray(arr1, arr2) {
-//   return arr1
-//     .concat(arr2)
-//     .filter(function(item) {
-//       return !(arr1.indexOf(item) !== -1 && arr2.indexOf(item) !== -1);
-//     });
-// }
+// ***** Difference Between Two Arrays *****
+
+/* 
+Compare two arrays and return a new array with any items only found in one of the 
+two given arrays, but not both. In other words, 
+return the symmetric difference of the two arrays.
+*/
 
 function diffArray(arr1, arr2) {
   return arr1
@@ -245,16 +290,15 @@ function diffArray4(arr1, arr2) {
   return newArr;
 }
 
-console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
-console.log(diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
-console.log(diffArray2([1, 2, 3, 5], [1, 2, 3, 4, 5]));
-console.log(diffArray2(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
-console.log(diffArray3([1, 2, 3, 5], [1, 2, 3, 4, 5]));
-console.log(diffArray3(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
 console.log(diffArray4([1, 2, 3, 5], [1, 2, 3, 4, 5]));
 console.log(diffArray4(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
 
-// Roman Numeral Converter
+
+// ***** Roman Numeral Converter *****
+
+/* 
+Convert the given number into a roman numeral.
+*/
 
 function convertToRoman(num) {
   var romanNum = '';
@@ -319,10 +363,24 @@ function convertToRoman2(num) {
  return romanized;
 }
 
-console.log(convertToRoman(1148));
 console.log(convertToRoman2(1148));
 
-// What's in a name?
+
+// ***** Wherefore art thou *****
+
+/* 
+Make a function that looks through an array of objects (first argument) 
+and returns an array of all objects that have matching property 
+and value pairs (second argument). Each property and value pair of the 
+source object has to be present in the object from the collection if it 
+is to be included in the returned array.
+
+For example, if the first argument is [{ first: "Romeo", last: "Montague" }, 
+{ first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], 
+and the second argument is { last: "Capulet" }, then you must return the third object 
+from the array (the first argument), because it contains the property and its value, 
+that was passed on as the second argument.
+*/
 
 function whatIsInAName(collection, source) {
   var srcKeys = Object.keys(source);
@@ -338,11 +396,21 @@ function whatIsInAName(collection, source) {
   });
 }
 
-// console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
-// console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }));
-// console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "c": 2 }));
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
+console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "c": 2 }));
 
-// 
+
+// ***** Search and Replace *****
+
+/* 
+Perform a search and replace on the sentence using the arguments provided and return the new sentence.
+First argument is the sentence to perform the search and replace on.
+Second argument is the word that you will be replacing (before).
+Third argument is what you will be replacing the second argument with (after).
+NOTE: Preserve the case of the original word when you are replacing it. 
+For example if you mean to replace the word "Book" with the word "dog", 
+it should be replaced as "Dog"
+*/
 
 var myReplace = function(str, before, after) {
   if(before.charCodeAt(0) <= 90) {
@@ -380,7 +448,16 @@ var myReplace3 = function(str, before, after) {
 // console.log(myReplace2("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
 // console.log(myReplace2("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
 
-// Pig Latin Translation
+
+// ***** Pig Latin Translation *****
+
+/* 
+Translate the provided string to pig latin.
+Pig Latin takes the first consonant (or consonant cluster) of an English word, 
+moves it to the end of the word and suffixes an "ay".
+If a word begins with a vowel you just add "way" to the end.
+Input strings are guaranteed to be English words in all lowercase.
+*/
 
 function translatePigLatin(str) {
   var re = /[aeiou]/i;
@@ -406,39 +483,7 @@ function translatePigLatin2(str) {
   return pigLatin;
 }
 
-console.log(translatePigLatin("crrronsonant"));
 console.log(translatePigLatin2("cronsonant"));
-
-// CLOCK
-
-const clockSection = document.getElementById('clock');
-
-function getTime() {
-
-  function pad(number) {
-    if(number < 10) {
-      return "0" + number;
-    } else {
-      return number;
-    }
-  }
-
-  const now = new Date();
-
-  const hh = pad(now.getHours());
-  const mm = pad(now.getMinutes());
-  const ss = pad(now.getSeconds());
-
-  return `${hh}:${mm}:${ss}`;
-
-}
-
-function tickClock() {
-  clockSection.textContent = getTime();
-};
-
-tickClock();
-setInterval(tickClock, 1000);
 
 
 // ***** DNA Pairing *****
