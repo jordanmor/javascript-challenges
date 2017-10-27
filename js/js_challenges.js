@@ -1,4 +1,4 @@
-
+// TESTING GROUND
 
 // ***** Missing Letters *****
 
@@ -12,14 +12,3 @@ function fearNotLetter(str) {
 }
 
 fearNotLetter("abce");
-
-
-
-
-
-
-
-
-
-
-
