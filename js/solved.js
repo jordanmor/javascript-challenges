@@ -440,5 +440,32 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
+// DNA Pairing
+
+function pairElement(str) {
+  return str.split('').map(base => {
+    const arr = [];
+      if (base === 'G') {
+        arr.push(base, 'C');
+        return arr;
+      } else if (base === 'C') {
+        arr.push(base, 'G');
+        return arr;
+      } else if (base === 'A') {
+        arr.push(base, 'T');
+        return arr;
+      } else if (base === 'T') {
+        arr.push(base, 'A');
+        return arr;
+      }
+    });
+}
+
+console.log(pairElement("GCGAT"));
+
+
+
+
+
 
 

@@ -14,27 +14,63 @@
 
 // New Code
 
-function SpecialDay(name, day, month) {
-	this.name = name;
-	this.day = day;
-	this.month = month;
-	this.date = new Date(new Date().getFullYear(), this.day, this.month);
+// function SpecialDay(name, day, month) {
+// 	this.name = name;
+// 	this.day = day;
+// 	this.month = month;
+// 	this.date = new Date(new Date().getFullYear(), this.day, this.month);
+// }
+
+// const halloween = new SpecialDay('Halloween', 9, 31);
+// const thanksgiving = new SpecialDay('Thanksgiving', 11, 25);
+// const christmas = new SpecialDay('Christmas', 12, 25);
+
+// function daysTillHoliday(specialDay) {
+
+// 	function dayCount(start, end) {
+// 		return Math.round((end - start)/(1000*60*60*24)); // (ms*sec*min*hr)
+// 	}
+
+// 	const daysLeft = dayCount(new Date, specialDay.date);
+
+// 	return `There are ${daysLeft} days until ${specialDay.name}`;
+// }
+// console.log(daysTillHoliday(halloween));
+// console.log(daysTillHoliday(thanksgiving));
+// console.log(daysTillHoliday(christmas));
+
+function pairElement(str) {
+	return str.split('').map(base => {
+		const arr = [];
+	  	if (base === 'G') {
+	  		arr.push(base, 'C');
+	  		return arr;
+	  	} else if (base === 'C') {
+	  		arr.push(base, 'G');
+	  		return arr;
+	  	} else if (base === 'A') {
+	  		arr.push(base, 'T');
+	  		return arr;
+	  	} else if (base === 'T') {
+	  		arr.push(base, 'A');
+	  		return arr;
+	  	}
+  	});
 }
 
-const halloween = new SpecialDay('Halloween', 9, 31);
-const thanksgiving = new SpecialDay('Thanksgiving', 11, 25);
-const christmas = new SpecialDay('Christmas', 12, 25);
+console.log(pairElement("GCGAT"));
 
-function daysTillHoliday(specialDay) {
 
-	function dayCount(start, end) {
-		return Math.round((end - start)/(1000*60*60*24)); // (ms*sec*min*hr)
-	}
 
-	const daysLeft = dayCount(new Date, specialDay.date);
 
-	return `There are ${daysLeft} days until ${specialDay.name}`;
-}
-console.log(daysTillHoliday(halloween));
-console.log(daysTillHoliday(thanksgiving));
-console.log(daysTillHoliday(christmas));
+
+
+
+
+
+
+
+
+
+
+
