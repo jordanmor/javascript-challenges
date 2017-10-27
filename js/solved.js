@@ -440,9 +440,19 @@ function tickClock() {
 tickClock();
 setInterval(tickClock, 1000);
 
-// DNA Pairing
 
-function pairElement(str) {
+// ***** DNA Pairing *****
+
+/* The DNA strand is missing the pairing element. 
+Take each character, get its pair, and return the results as a 2d array.
+Base pairs are a pair of AT and CG. Match the missing element to the provided character.
+Return the provided character as the first element in each array.
+For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+The character and its pair are paired up in an array, 
+and all the arrays are grouped into one encapsulating array.
+*/
+
+function pairElement1(str) {
   return str.split('').map(base => {
     const arr = [];
       if (base === 'G') {
@@ -461,7 +471,58 @@ function pairElement(str) {
     });
 }
 
+function pairElement2(dna) {
+  return dna.split('').map(el => {
+    if (el === 'A') {
+      return ['A', 'T'];
+    } else if (el === 'C') {
+        return ['C', 'G'];
+      } else if (el === 'G') {
+        return ['G', 'C'];
+      } else if (el === 'T') {
+        return ['T', 'A'];
+      }
+  });
+}
+
+// --- BEST SOLUTION ---
+
+function pairElement3(dna) {
+  const pairs = {
+    "A": ["A", "T"],
+    "C": ["C", "G"],
+    "G": ["G", "C"],
+    "T": ["T", "A"]
+  };
+
+  return dna.split("").map(el => {
+    return pairs[el];
+  });
+}
+
 console.log(pairElement("GCGAT"));
+
+
+// ***** Missing Letters *****
+
+/* 
+Find the missing letter in the passed letter range and return it.
+If all letters are present in the range, return undefined.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
