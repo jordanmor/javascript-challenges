@@ -7,8 +7,10 @@ Find the missing letter in the passed letter range and return it.
 If all letters are present in the range, return undefined.
 */
 
-function fearNotLetter(str) {
-  return str;
-}
+// find alternate solutions
 
-fearNotLetter("abce");
+function fearNotLetter(str) {
+
+	return str;
+}
+console.log(fearNotLetter("abcdefghjklmno"));

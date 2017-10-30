@@ -555,7 +555,22 @@ Find the missing letter in the passed letter range and return it.
 If all letters are present in the range, return undefined.
 */
 
+function fearNotLetter(str) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  if(alphabet.indexOf(str) !== -1) {
+    return undefined;
+  } else {
+    const completeSegment = alphabet.substr(alphabet.indexOf(str.charAt(0)), str.length + 1);
+    console.log(completeSegment);
+    for(let i = 0; i < completeSegment.length; i++) {
+      if( str.indexOf(completeSegment.charAt(i)) === -1 ) {
+        return completeSegment.charAt(i); 
+      }
+    }
+  } 
+}
 
+console.log(fearNotLetter("abcdefghjklmno"));
 
 
 
