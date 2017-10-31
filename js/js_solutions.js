@@ -602,15 +602,33 @@ function fearNotLetter3(str) {
 console.log(fearNotLetter3("abcdefghijklno"));
 
 
-// ***** Boo Hoo *****
+// ***** Sorted Union *****
 
 /* 
-Check if a value is classified as a boolean primitive. 
-Return true or false.
-Boolean primitives are true and false.
+Write a function that takes two or more arrays and returns a new array 
+of unique values in the order of the original provided arrays.
+
+In other words, all values present from all arrays should be included 
+in their original order, but with no duplicates in the final array.
+
+The unique numbers should be sorted by their original order, 
+but the final array should not be sorted in numerical order.
+
+Check the assertion tests for examples.
 */
 
+function uniteUnique(arr) {
+  const args = Array.from(arguments);
 
+  const newArr = args
+    .reduce((a, b) => a.concat(b), [])
+    .filter(function(num, index, array) {
+      return index === array.indexOf(num);
+    });
+  return newArr;
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
 
 
 
