@@ -628,9 +628,24 @@ function uniteUnique(arr) {
   return newArr;
 }
 
-console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+// --- BEST SOLUTION --- (uses ES2015)
 
+function uniteUnique2(arr) {
+  const args = [].concat(...arguments);
 
+  return [...new Set(args)];
+}
+
+console.log(uniteUnique2([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+// TESTING GROUND
+
+// ***** Convert HTML Entities *****
+
+/* 
+Convert the characters &, <, >, " (double quote), and ' (apostrophe), 
+in a string to their corresponding HTML entities.
+*/
 
 
 
