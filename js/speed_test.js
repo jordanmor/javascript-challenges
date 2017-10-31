@@ -7,8 +7,8 @@ var SpeedTest = function(testImplement,testParams,repetitions) {
 
 SpeedTest.prototype = {
   startTest: function() {
-    console.log("Test to make sure param introduction is success \n"); // Test to make sure the parameters are introduced correctly into the startTest
-    console.log(this.testParams);
+    // console.log("Test to make sure param introduction is success \n"); // Test to make sure the parameters are introduced correctly into the startTest
+    // console.log(this.testParams);
     if (this.testImplement(this.testParams) === false) {
       alert('Test failed with those parameters.');
       return;
@@ -22,6 +22,6 @@ SpeedTest.prototype = {
     }
     this.average = sumTimes / this.repetitions;
     console.log('Average execution across ' + this.repetitions + ': ' + this.average + '\n');
-    return console.log(this.testImplement(this.testParams)); // Test to make speedtest is outputting correct results
+    return console.log(this.testImplement(this.testParams)); // Test to make sure speedtest is outputting correct results
   }
 };
