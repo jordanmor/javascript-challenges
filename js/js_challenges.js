@@ -1,16 +1,16 @@
 // TESTING GROUND
 
-// ***** Missing Letters *****
+// ***** Boo Hoo *****
 
 /* 
-Find the missing letter in the passed letter range and return it.
-If all letters are present in the range, return undefined.
+Check if a value is classified as a boolean primitive. 
+Return true or false.
+Boolean primitives are true and false.
 */
 
-// find alternate solutions
-
-function fearNotLetter(str) {
-
-	return str;
+function booWho(bool) {
+  // What is the new fad diet for ghost developers? The Boolean.
+  return bool;
 }
-console.log(fearNotLetter("abcdefghjklmno"));
+
+booWho(null);

@@ -570,11 +570,45 @@ function fearNotLetter(str) {
   } 
 }
 
-console.log(fearNotLetter("abcdefghjklmno"));
+function fearNotLetter2(str) {
+  for(let i = 0; i < str.length; i++) {
+    let currentCharCode = str.charCodeAt(i);
+    let nextCharCode = str.charCodeAt(i + 1);
+    if ( currentCharCode !== nextCharCode - 1 ) {
+      return String.fromCharCode(currentCharCode + 1);
+    }
+  }
+  return undefined;
+}
+
+// --- BEST SOLUTION ---
+
+function fearNotLetter3(str) {
+
+  let firstCharCode = str.charCodeAt(0);
+
+  for(let i = 0; i < str.length; i++) {
+
+    let currentCharCode = str.charCodeAt(i);
+
+    if (currentCharCode !== firstCharCode + i) {
+
+      return String.fromCharCode(currentCharCode - 1);
+    }  
+  } 
+  return undefined;
+}
+
+console.log(fearNotLetter3("abcdefghijklno"));
 
 
+// ***** Boo Hoo *****
 
-
+/* 
+Check if a value is classified as a boolean primitive. 
+Return true or false.
+Boolean primitives are true and false.
+*/
 
 
 
