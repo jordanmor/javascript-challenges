@@ -647,9 +647,35 @@ Convert the characters &, <, >, " (double quote), and ' (apostrophe),
 in a string to their corresponding HTML entities.
 */
 
+function convertHTML(str) {
+  function replacer(entityMatch) {
+    switch(entityMatch) {
+      case '&': return '&amp;'; 
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&apos;';
+    }
+  }
+  return str.replace(/[&<>"']/g, replacer);
+}
+
+// --- BEST SOLUTION ---
+
+function convertHTML2(str) {
+  const entities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "\'": "&apos;"};
+
+  return str.replace(/[&<>"']/g, (entityMatch) => entities[entityMatch]);
+}
+
+console.log(convertHTML2('Stuff in "quotation marks" & other stuff < than or > than this'));
 
 
+// ***** Spinal Tap Case *****
 
+/* 
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+*/
 
 
 

@@ -1,15 +1,32 @@
 // TESTING GROUND
 
-// ***** Convert HTML Entities *****
+// ***** Spinal Tap Case *****
 
 /* 
-Convert the characters &, <, >, " (double quote), and ' (apostrophe), 
-in a string to their corresponding HTML entities.
+Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 */
 
-function convertHTML(str) {
-  // &colon;&rpar;
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
   return str;
 }
 
-convertHTML("Dolce & Gabbana");
+spinalCase('This Is Spinal Tap');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
