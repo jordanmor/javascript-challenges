@@ -677,9 +677,34 @@ console.log(convertHTML2('Stuff in "quotation marks" & other stuff < than or > t
 Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 */
 
+function spinalCase(str) {
+  
+return str
+  .replace(/[\s_]+/g, '-')
+  .replace(/\B[A-Z]/g, (capitalLetter) => `-${capitalLetter}`)
+  .toLowerCase();
+}
 
+function spinalCase2(str) {
 
+ return str
+  .replace(/([a-z])([A-Z])/g, '$1 $2')
+  .replace(/\s+|_+/g, '-')
+  .toLowerCase();
+}
 
+function spinalCase3(str) {
 
+  return str.split(/[_\s]+|(?=[A-Z])/).join('-').toLowerCase();
+}
 
+// --- BEST SOLUTION ---
+
+function spinalCase4(str) {
+
+  return str.replace(/([a-z])([A-Z])|[_\s]+/g, '$1-$2').toLowerCase();
+}
+
+console.log(spinalCase4('ThisIsSpinalTap   andNowThis here__now'));
+console.log(spinalCase4("The_Andy_Griffith_Show"));
 
