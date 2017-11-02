@@ -25,3 +25,9 @@ SpeedTest.prototype = {
     return console.log(this.testImplement(this.testParams)); // Test to make sure speedtest is outputting correct results
   }
 };
+
+const param = '';
+const speedTest1 = new SpeedTest(/*functionGoesHere*/, param);
+const speedTest2 = new SpeedTest(/*functionGoesHere*/, param);
+speedTest1.startTest();
+speedTest2.startTest();
