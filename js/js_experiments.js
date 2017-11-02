@@ -1,40 +1,33 @@
-// Old Code
+// ***** Print the date to the console in the following formats: *****
+// Friday, September 10, 2017
+// Today is Friday, the 10th of September, 2017.
 
-// let str = 'There are x days until Halloween!';
+function printDate() {
+	const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-// let halloweenDate = new Date(new Date().getFullYear(), 9, 31);
+	const now = new Date();
+	const dayOfMonth = now.getDate();
+	const dayName = days[now.getDay()];
+	const month = months[now.getMonth()];
+	const year = now.getFullYear();
 
-// let complexStr = str.replace('x', dayCount(new Date, halloweenDate));
-
-// console.log(complexStr);
-
-// function dayCount(start, end) {
-//   return Math.round((end - start)/(1000*60*60*24)); // (ms*sec*min*hr)
-// }
-
-// New Code
-
-function SpecialDay(name, day, month) {
-	this.name = name;
-	this.day = day;
-	this.month = month;
-	this.date = new Date(new Date().getFullYear(), this.day, this.month);
-}
-
-const halloween = new SpecialDay('Halloween', 9, 31);
-const thanksgiving = new SpecialDay('Thanksgiving', 11, 25);
-const christmas = new SpecialDay('Christmas', 12, 25);
-
-function daysTillHoliday(specialDay) {
-
-	function dayCount(start, end) {
-		return Math.round((end - start)/(1000*60*60*24)); // (ms*sec*min*hr)
+	function ordinalIndicator(day) {
+		if(day === 1) {
+			return `${day}st`;
+		} else if(day === 2) {
+			return `${day}nd`;
+		} else if(day === 3) {
+			return `${day}rd`;
+		} else {
+			return `${day}th`;
+		}
 	}
 
-	const daysLeft = dayCount(new Date, specialDay.date);
+	const dateFormat1 = `${dayName}, ${month} ${dayOfMonth}, ${year}`;
+	const dateFormat2 = `Today is ${dayName}, the ${ordinalIndicator(dayOfMonth)} of ${month}, ${year}.`;
 
-	return `There are ${daysLeft} days until ${specialDay.name}`;
+	return dateFormat1 + '\n' + dateFormat2;
 }
-console.log(daysTillHoliday(halloween));
-console.log(daysTillHoliday(thanksgiving));
-console.log(daysTillHoliday(christmas));
+
+console.log(printDate());
