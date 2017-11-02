@@ -708,3 +708,145 @@ function spinalCase4(str) {
 console.log(spinalCase4('ThisIsSpinalTap   andNowThis here__now'));
 console.log(spinalCase4("The_Andy_Griffith_Show"));
 
+
+
+// ***** Use the filter, map and reduce methods to solve the following challenges *****
+
+// Find the highest price of all the products under $10
+// Desired result: { name: 'paper towels', price: 6.99 }
+
+const products = [
+  { name: 'hard drive', price: 59.99 },
+  { name: 'lighbulbs', price: 2.59 },
+  { name: 'paper towels', price: 6.99 },
+  { name: 'flatscreen monitor', price: 159.99 },
+  { name: 'cable ties', price: 19.99 },
+  { name: 'ballpoint pens', price: 4.49 }
+];
+
+const filteredProduct = products
+  .filter(product => product.price < 10)
+  .reduce((highest, product) => {
+    return highest.price > product.price ? highest : product;
+  });
+
+console.log(filteredProduct);
+
+// Using the same object above, return a total of all products over $10
+// Desired result: 239.97
+
+const totalPrice = products
+  .filter(product => product.price > 10)
+  .reduce((sum, product) => sum + product.price, 0)
+  .toFixed(2);
+
+console.log(totalPrice);
+
+// Add the total price of all the groceries listed below
+
+const purchaseItems = [
+    {
+        name: 'apples',
+        dept: 'groceries',
+        price: 2.49
+    },
+    {
+        name: 'bread',
+        dept: 'groceries',
+        price: 2.99
+    },
+    {
+        name: 'batteries',
+        dept: 'electronics',
+        price: 5.80
+    },
+    {
+        name: 'eggs',
+        dept: 'groceries',
+        price: 3.99
+    },
+    {
+        name: 't-shirts',
+        dept: 'apparel',
+        price: 9.99
+    }
+];
+
+let groceryTotal = purchaseItems
+  .filter(item => item.dept === 'groceries')
+  .reduce((sum, item) => sum + item.price, 0)
+  .toFixed(2);
+
+console.log(groceryTotal);
+
+// Flatten movies subarrays into one array
+
+const movies = [
+  ['The Day the Earth Stood Still', 'Superman', 'Ghostbusters'],
+  ['Finding Dory'],
+  ['Jaws', 'On the Waterfront']
+]
+
+const flatMovies = movies.reduce((arr, innerMovies) => [...arr, ...innerMovies], []);
+
+console.log(flatMovies);
+
+// Place the book titles found in the users object into one array
+
+const users = [
+  {
+    name: 'Samir',
+    age: 27,
+    favoriteBooks:[
+      {title: 'The Iliad'},
+      {title: 'The Brothers Karamazov'}
+    ]
+  },
+  {
+    name: 'Angela',
+    age: 33,
+    favoriteBooks:[
+      {title: 'Tenth of December'},
+      {title: 'Cloud Atlas'},
+      {title: 'One Hundred Years of Solitude'}
+    ]
+  },
+  {
+    name: 'Beatrice',
+    age: 42,
+    favoriteBooks:[
+      {title: 'Candide'}
+    ]
+  }
+];
+
+const books = users
+  .reduce((arr, users) => [...arr, ...user.favoriteBooks], [])
+  .map(book => book.title);
+
+console.log(books);
+
+
+// ***** Sum All Odd Fibonacci Numbers *****
+
+/* 
+Given a positive integer num, return the sum 
+of all odd Fibonacci numbers that are less than or equal to num.
+
+The first two numbers in the Fibonacci sequence are 1 and 1. 
+Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
+
+For example, sumFibs(10) should return 10 because 
+all odd Fibonacci numbers less than 10 are 1, 1, 3, and 5.
+*/
+
+
+
+
+
+
+
+
+
+
+
