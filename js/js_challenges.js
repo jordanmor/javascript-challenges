@@ -1,26 +1,26 @@
 // TESTING GROUND
 
-// ***** Sum All Primes *****
+// ***** Smallest Common Multiple *****
 
 /* 
 
-Sum all the prime numbers up to and including the provided number.
+Find the smallest common multiple of the provided parameters that 
+can be evenly divided by both, as well as by all sequential 
+numbers in the range between these parameters.
 
-A prime number is defined as a number greater than one and having only two divisors, 
-one and itself. For example, 2 is a prime number because it's only divisible by one and two.
+The range will be an array of two numbers that will not 
+necessarily be in numerical order.
 
-The provided number may not be a prime.
+e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3 
+that is evenly divisible by all numbers between 1 and 3.
 */
 
-function sumPrimes(num) {
-  return num;
+function smallestCommons(arr) {
+  return arr;
 }
 
-sumPrimes(10);
 
-
-
-
+smallestCommons([1,5]);
 
 
 
