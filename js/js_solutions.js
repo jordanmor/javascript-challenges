@@ -840,6 +840,65 @@ For example, sumFibs(10) should return 10 because
 all odd Fibonacci numbers less than 10 are 1, 1, 3, and 5.
 */
 
+function sumFibs(num) {
+
+  let total = 0;
+
+  let a = 1, b = 0, temp;
+
+  while (num >= b){
+    if(b % 2 !== 0) {
+      total += b;
+    }
+    temp = a;
+    a = a + b;
+    b = temp;
+  }
+
+  return total;
+}
+
+// --- BEST SOLUTION ---
+
+function sumFibs2(num) {
+  let prevNumber = 0;
+  let currNumber = 1;
+  let result = 0;
+  while (currNumber <= num) {
+    if(currNumber % 2 !== 0) {
+      result += currNumber;
+    }
+    currNumber += prevNumber;
+    prevNumber = currNumber - prevNumber;
+  }
+
+  return result;
+}
+
+
+// ***** Sum All Primes *****
+
+/* 
+
+Sum all the prime numbers up to and including the provided number.
+
+A prime number is defined as a number greater than one and having only two divisors, 
+one and itself. For example, 2 is a prime number because it's only divisible by one and two.
+
+The provided number may not be a prime.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
