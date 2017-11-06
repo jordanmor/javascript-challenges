@@ -3,7 +3,6 @@
 // ***** Smallest Common Multiple *****
 
 /* 
-
 Find the smallest common multiple of the provided parameters that 
 can be evenly divided by both, as well as by all sequential 
 numbers in the range between these parameters.
@@ -16,13 +15,11 @@ that is evenly divisible by all numbers between 1 and 3.
 */
 
 function smallestCommons(arr) {
-  return arr;
+
+  return arr;  
 }
 
-
-smallestCommons([1,5]);
-
-
+console.log(smallestCommons([1,5]));
 
 
 
