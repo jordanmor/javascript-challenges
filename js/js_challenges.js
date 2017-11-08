@@ -1,27 +1,22 @@
 // TESTING GROUND
 
-// ***** Smallest Common Multiple *****
+// ***** Drop it *****
 
 /* 
-Find the smallest common multiple of the provided parameters that 
-can be evenly divided by both, as well as by all sequential 
-numbers in the range between these parameters.
+Drop the elements of an array (first argument), starting from the front, 
+until the predicate (second argument) returns true.
 
-The range will be an array of two numbers that will not 
-necessarily be in numerical order.
+The second argument, func, is a function you'll use to test 
+the first elements of the array to decide if you should drop it or not.
 
-e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3 
-that is evenly divisible by all numbers between 1 and 3.
+Return the rest of the array, otherwise return an empty array.
 */
 
-function smallestCommons(arr) {
-
-  return arr;  
+function dropElements(arr, func) {
+  // Drop them elements.
+  return arr;
 }
 
-console.log(smallestCommons([1,5]));
-
-
-
+dropElements([1, 2, 3], function(n) {return n < 3; });
 
 
