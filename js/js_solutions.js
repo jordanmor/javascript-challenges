@@ -965,7 +965,20 @@ the first elements of the array to decide if you should drop it or not.
 Return the rest of the array, otherwise return an empty array.
 */
 
+function dropElements(arr, func) {
 
+  for(let i = 0, x = arr.length; i < x; i++) {
+    if(func(arr[0])) {
+      break;
+    } else {
+      arr.shift();
+    }
+  }
+  
+  return arr;
+}
+
+console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
 
 
 

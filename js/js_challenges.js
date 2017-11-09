@@ -13,10 +13,18 @@ Return the rest of the array, otherwise return an empty array.
 */
 
 function dropElements(arr, func) {
-  // Drop them elements.
+
+	for(let i = 0, x = arr.length; i < x; i++) {
+		if(func(arr[0])) {
+			break;
+  	} else {
+  		arr.shift();
+  	}
+	}
+  
   return arr;
 }
 
-dropElements([1, 2, 3], function(n) {return n < 3; });
+console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
 
 
