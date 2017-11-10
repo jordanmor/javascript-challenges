@@ -1,30 +1,17 @@
 // TESTING GROUND
 
-// ***** Drop it *****
+// ***** Binary Agents *****
 
 /* 
-Drop the elements of an array (first argument), starting from the front, 
-until the predicate (second argument) returns true.
+Return an English translated sentence of the passed binary string.
 
-The second argument, func, is a function you'll use to test 
-the first elements of the array to decide if you should drop it or not.
-
-Return the rest of the array, otherwise return an empty array.
+The binary string will be space separated.
 */
 
-function dropElements(arr, func) {
-
-	for(let i = 0, x = arr.length; i < x; i++) {
-		if(func(arr[0])) {
-			break;
-  	} else {
-  		arr.shift();
-  	}
-	}
-  
-  return arr;
+function binaryAgent(str) {
+  return str;
 }
 
-console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
 
 
