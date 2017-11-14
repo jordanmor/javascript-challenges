@@ -1002,6 +1002,39 @@ Return an English translated sentence of the passed binary string.
 The binary string will be space separated.
 */
 
+function binaryAgent(str) {
+  function binaryTranslator(binaryMatch) {
+    return String.fromCharCode(parseInt(binaryMatch, 2));
+  }
+  return str.replace(/[01]{8}\s?/g, binaryTranslator);
+}
+
+// --- BEST SOLUTION ---
+
+function binaryAgent(str) {
+
+  return str.split(' ')
+            .map(binaryCode => String.fromCharCode(parseInt(binaryCode, 2)))
+            .join('');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
