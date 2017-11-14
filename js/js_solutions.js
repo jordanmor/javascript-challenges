@@ -1019,22 +1019,15 @@ function binaryAgent(str) {
 }
 
 
+// ***** Flatten Nested Array *****
 
+/* 
+Flatten a nested array. You must account for varying levels of nesting.
+*/
 
+function flattenArray(arr) {
+  let flattenedArr = [].concat(...arr);
+  return flattenedArr.some(Array.isArray) ? flattenArray(flattenedArr) : flattenedArr;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(flattenArray( [1, [2], [3, [[4]]]]) );
