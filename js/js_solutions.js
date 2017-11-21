@@ -1184,7 +1184,7 @@ If value is empty (""), delete the given prop property from the album.
 */
 
 // Setup
-var collection = {
+const collection = {
     "2548": {
       "album": "Slippery When Wet",
       "artist": "Bon Jovi",
@@ -1210,10 +1210,10 @@ var collection = {
     }
 };
 // Keep a copy of the collection for tests
-var collectionCopy = JSON.parse(JSON.stringify(collection));
+const collectionCopy = JSON.parse(JSON.stringify(collection));
 
 function updateRecords(id, prop, value) {
-  let objId = collection[id];
+  const objId = collection[id];
   if (value === '') {
     delete objId[prop];
   } else if (prop !== 'tracks') {
