@@ -1331,6 +1331,8 @@ function checkCashRegister(price, cash, cid) {
 
 }
 
+// --- BEST SOLUTION ---
+
 function checkCashRegister2(price, cash, cid) {
   // const denominations = [0.01, 0.05, 0.10, 0.25, 0.50, 1, 5, 10, 20, 100]
   const denominations = [1, 5, 10, 25, 100, 500, 1000, 2000, 10000]; // Multiplied by 100
@@ -1361,3 +1363,91 @@ function checkCashRegister2(price, cash, cid) {
 // ["ONE HUNDRED", 100.00]]
 
 console.log(checkCashRegister2(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]));
+
+
+
+// ***** Inventory Update *****
+
+/* 
+Compare and update the inventory stored in a 2D array against 
+a second 2D array of a fresh delivery. 
+Update the current existing inventory item quantities (in arr1). 
+If an item cannot be found, add the new item and quantity into the inventory array. 
+The returned inventory array should be in alphabetical order by item.
+*/
+
+function updateInventory(arr1, arr2) {
+    
+    arr2.map((item) => {
+        for(let i = 0; i < arr1.length; i++) {
+          if(item[1] === arr1[i][1]) {
+            arr1[i][0] += item[0];
+            return item;
+          }
+        }
+        arr1.push(item);
+        return item;
+    });
+
+    function compare(a, b) {
+      if (a[1] < b[1]) { return -1;}
+      if (a[1] > b[1]) { return 1; }
+      // a must be equal to b
+      return 0;
+    }
+
+    return arr1.sort(compare);
+}
+
+function updateInventory2(arr1, arr2) {
+    
+    arr2.forEach((newItem) => {
+        let pushItem = true;
+        arr1.forEach(currentItem => {
+          // If product is already present. increase quantity
+          if(currentItem[1] === newItem[1]) {
+            currentItem[0] += newItem[0];
+            pushItem = false;
+          }
+        });
+        // If product not already present, add product to array
+        if(pushItem) { arr1.push(newItem); }            
+    });
+    // Return arr in alphabetical order
+    return arr1.sort((a, b) => a[1] > b[1] ? 1 : -1);
+}
+
+// --- BEST SOLUTION ---
+
+function updateInventory3(arr1, arr2) {
+    
+    arr2.forEach((newItem, newItemIndex) => {
+        arr1.forEach((currentItem) => {
+          if(currentItem[1] === newItem[1]) {
+            // If product is already present, increase quantity
+            currentItem[0] += newItem[0];
+            // then delete matched item from arr2
+            arr2.splice(newItemIndex, 1);
+          }
+        });           
+    });
+    // Return concatenated array in alphabetical order
+    return [...arr1, ...arr2].sort((a, b) => a[1] > b[1] ? 1 : -1);
+}
+
+// Example inventory lists
+var curInv = [
+    [21, "Bowling Ball"],
+    [2, "Dirty Sock"],
+    [1, "Hair Pin"],
+    [5, "Microphone"]
+];
+
+var newInv = [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+];
+
+console.log(updateInventory3(curInv, newInv));
