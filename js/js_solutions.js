@@ -1417,8 +1417,6 @@ function updateInventory2(arr1, arr2) {
     return arr1.sort((a, b) => a[1] > b[1] ? 1 : -1);
 }
 
-// --- BEST SOLUTION ---
-
 function updateInventory3(arr1, arr2) {
     
     arr2.forEach((newItem, newItemIndex) => {
@@ -1433,6 +1431,20 @@ function updateInventory3(arr1, arr2) {
     });
     // Return concatenated array in alphabetical order
     return [...arr1, ...arr2].sort((a, b) => a[1] > b[1] ? 1 : -1);
+}
+
+// --- BEST SOLUTION ---
+
+function updateInventory4(arr1, arr2) {
+    
+    arr2.forEach((newItem) => {
+        // check whether newItem matches an item in inventory array and save index
+        const matchedIndex = arr1.map(currentItem => currentItem[1]).indexOf(newItem[1]);
+        // if saved index finds no match, push newItem into inventory, otherwise update existing inventory item quantities
+        matchedIndex === -1 ? arr1.push(newItem) : arr1[matchedIndex][0] += newItem[0];          
+    });
+    // Return concatenated array in alphabetical order
+    return arr1.sort((a, b) => a[1] > b[1] ? 1 : -1);
 }
 
 // Example inventory lists
@@ -1450,4 +1462,4 @@ var newInv = [
     [7, "Toothpaste"]
 ];
 
-console.log(updateInventory3(curInv, newInv));
+console.log(updateInventory4(curInv, newInv));
