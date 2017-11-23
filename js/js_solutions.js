@@ -1502,3 +1502,35 @@ person.setFirstName('Harold');
 console.log(person.getFullName());
 person.setLastName('Curry');
 console.log(person.getFullName());
+
+
+// ***** No Repeats Please *****
+
+/* 
+Return the number of total permutations of the provided string that don't have 
+repeated consecutive letters. Assume that all characters in the provided string are each unique.
+
+For example, aab should return 2 because it has 6 total permutations (aab, aab, aba, aba, baa, baa), 
+but only 2 of them (aba and aba) don't have the same letter (in this case a) repeating.
+*/
+
+function permAlone(str) {
+
+  var regex = /(.)\1/;
+
+  function generateArr(arr1, arr2){
+    if(arr2.length) {
+      let sum = 0;
+      for(let i = 0; i < arr1.length + 1; i++){
+        sum += generateArr(arr1.slice(0,i).concat(arr2[0]).concat(arr1.slice(i)),arr2.slice(1));
+      }
+      return sum;
+    } else {
+      return !regex.test(arr1.join(''));
+    }
+  }
+
+  return generateArr([], str.split(''));
+}
+
+console.log(permAlone('aab'));
